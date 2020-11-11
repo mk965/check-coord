@@ -3,10 +3,10 @@
  * @LastEditors: Mencre
  * @email: mencre@163.com
  * @Date: 2020-11-11 09:39:09
- * @LastEditTime: 2020-11-11 10:27:53
- * @Description: Modify here please
+ * @LastEditTime: 2020-11-11 11:23:43
+ * @Description: check-coord
  */
-export default (inpCoord) => {
+modules.exports = (inpCoord) => {
     if(!inpCoord){
         throw Error('There is at least one parameter!')
     }
