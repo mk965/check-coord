@@ -1,4 +1,4 @@
-# check-coord ![](https://img.shields.io/npm/v/check-coord.svg?style=flat)
+# check-coord [![](https://img.shields.io/npm/v/check-coord.svg?style=flat)](https://www.npmjs.com/package/check-coord)
 
 Easy to use, coordinate format checking tool.
 
