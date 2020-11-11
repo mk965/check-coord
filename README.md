@@ -1,4 +1,4 @@
-# check-coord [![](https://img.shields.io/npm/v/check-coord.svg?style=flat)](https://www.npmjs.com/package/check-coord)
+# check-coord 🌏 [![](https://img.shields.io/npm/v/check-coord.svg?style=flat)](https://www.npmjs.com/package/check-coord)
 
 Easy to use, coordinate format checking tool.
 
@@ -6,9 +6,9 @@ Easy to use, coordinate format checking tool.
 
 [📥 Install](#install)
 
-[😎 Examples](#examples)
+[📍 Examples](#examples)
 
-[🤓 Return](#return)
+[📐 Return](#return)
 
 
 <h2 id='tags'>Install</h2>
