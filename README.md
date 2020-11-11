@@ -2,7 +2,7 @@
 
 Easy to use, coordinate format checking tool.
 
-[![](https://img.shields.io/github/stars/mk965/check-coord?style=social)](https://www.baidu.com)
+[![](https://img.shields.io/github/stars/mk965/check-coord?style=social)](https://github.com/mk965/check-coord)
 
 [📥 Install]("#install")
 
