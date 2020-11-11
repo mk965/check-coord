@@ -4,11 +4,11 @@ Easy to use, coordinate format checking tool.
 
 [![](https://img.shields.io/github/stars/mk965/check-coord?style=social)](https://github.com/mk965/check-coord)
 
-[📥 Install]("#install")
+[📥 Install](#install)
 
-[😎 Examples]("#examples")
+[😎 Examples](#examples)
 
-[🤓 Return]("#return")
+[🤓 Return](#return)
 
 
 <h2 id='tags'>Install</h2>
