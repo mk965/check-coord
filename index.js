@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-11-11 11:23:43
  * @Description: check-coord 
  */
-modules.exports = (inpCoord) => {
+module.exports = (inpCoord) => {
     if (!inpCoord) {
         throw Error('There is at least one parameter!')
     }
