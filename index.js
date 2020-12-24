@@ -3,7 +3,7 @@
  * @LastEditors: Mencre
  * @email: mencre@163.com
  * @Date: 2020-11-11 09:39:09
- * @LastEditTime: 2020-11-11 11:23:43
+ * @LastEditTime: 2020-12-22 11:34:37
  * @Description: check-coord 
  */
 module.exports = (inpCoord) => {
@@ -35,6 +35,7 @@ module.exports = (inpCoord) => {
         }
         result['spots'].push({
             'lon': coordItem.split(',')[0],
+            'lng': coordItem.split(',')[0],
             'lat': coordItem.split(',')[1]
         })
     });

@@ -1,6 +1,6 @@
 {
   "name": "check-coord",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Check that your coordinates are correct.",
   "main": "index.js",
   "scripts": {
