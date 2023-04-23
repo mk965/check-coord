@@ -1,10 +1,11 @@
 # check-coord 🌏 [![](https://img.shields.io/npm/v/check-coord.svg?style=flat)](https://www.npmjs.com/package/check-coord)
 
 Easy to use, coordinate format checking tool.
-
 [![](https://img.shields.io/github/stars/mk965/check-coord?style=social)](https://github.com/mk965/check-coord)
 
 [📥 Install](#install)
+
+[🎮 Usage](#Usage)
 
 [📍 Examples](#examples)
 
@@ -16,6 +17,19 @@ Easy to use, coordinate format checking tool.
 ```shell
 npm install check-coord
 ```
+
+<h2 id='Usage'>Usage</h2>
+
+1. Import the module: `const checkCoord = require('check-coord');`
+
+2. Call the function: `checkCoord(inpCoord)`, where `inpCoord` is the string to be checked.
+
+3. Return value: The function will return an object with the following properties:
+    - `isTrue`: Boolean value indicating whether the input string matches the pattern of latitude and longitude coordinates.
+    - `type`: Type of the coordinate(s), which can be 'spot', 'line', or 'region'.
+    - `spots`: Array of coordinate objects; only exists when type is 'spot' or 'line'.
+regionSpot: Number of points in the polygonal region; only exists when type is 'region'.
+    - `message`: Error message; only exists when isTrue is false.
 
 <h2 id='tags'>Examples</h2>
 
