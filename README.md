@@ -1,102 +1,126 @@
 # check-coord 🌏 [![](https://img.shields.io/npm/v/check-coord.svg?style=flat)](https://www.npmjs.com/package/check-coord)
 
-Easy to use, coordinate format checking tool.
+A powerful coordinate format validation, conversion and analysis tool. Supports validation and geometric calculations for point, line, and region coordinates.
+
 [![](https://img.shields.io/github/stars/mk965/check-coord?style=social)](https://github.com/mk965/check-coord)
 
-[📥 Install](#install)
+**Languages:** English | [中文](README_CN.md)
 
-[🎮 Usage](#Usage)
-
-[📍 Examples](#examples)
-
-[📐 Return](#return)
-
-
-<h2 id='tags'>Install</h2>
+### 📥 Install
 
 ```shell
 npm install check-coord
 ```
 
-<h2 id='Usage'>Usage</h2>
+### 🎮 Usage
 
-1. Import the module: `const checkCoord = require('check-coord');`
-
-2. Call the function: `checkCoord(inpCoord)`, where `inpCoord` is the string to be checked.
-
-3. Return value: The function will return an object with the following properties:
-    - `isTrue`: Boolean value indicating whether the input string matches the pattern of latitude and longitude coordinates.
-    - `type`: Type of the coordinate(s), which can be 'spot', 'line', or 'region'.
-    - `spots`: Array of coordinate objects; only exists when type is 'spot' or 'line'.
-regionSpot: Number of points in the polygonal region; only exists when type is 'region'.
-    - `message`: Error message; only exists when isTrue is false.
-
-<h2 id='tags'>Examples</h2>
+#### Basic Usage
 
 ```js
-import checkCoord from "check-coord";
+const checkCoord = require('check-coord');
 
-// Coordinate point
-checkCoord("116.3978146455078,39.9076393154042");
-
-// Coordinate line
-checkCoord("116.3978146455078,39.9076393154042; 116.39652718518064,39.93344333054544");
-
-// Coordinate region
-checkCoord("116.3978146455078,39.9076393154042; 116.39652718518064,39.93344333054544; 116.41712655041502,39.93370658670286");
+// Validate single point
+const result = checkCoord("116.3978146455078,39.9076393154042");
+console.log(result);
 ```
 
-<h2 id='tags'>Return</h2>
+#### Advanced Usage
 
 ```js
-// Coordinate point
+const { CoordinateValidator } = require('check-coord');
+const ExtendedAPI = require('check-coord/src/extended-api');
+
+// Use validator class directly
+const validator = new CoordinateValidator();
+const result = validator.validate("116.3978146455078,39.9076393154042");
+
+// Use extended API for advanced features
+const api = new ExtendedAPI();
+const analysis = api.analyzeCoordinates("116.3978146455078,39.9076393154042;116.39652718518064,39.93344333054544");
+```
+
+### 📍 Examples
+
+```js
+const checkCoord = require('check-coord');
+
+// Single coordinate point
+checkCoord("116.3978146455078,39.9076393154042");
+
+// Coordinate line (2 points)
+checkCoord("116.3978146455078,39.9076393154042;116.39652718518064,39.93344333054544");
+
+// Coordinate region (3+ points)
+checkCoord("116.3978146455078,39.9076393154042;116.39652718518064,39.93344333054544;116.41712655041502,39.93370658670286");
+```
+
+### 📐 Return Values
+
+#### Basic Validation Result
+
+```js
+// Single point
 {
-    isTrue: true,   // The coordinate are correct.
-    type: 'spot',   // The coordinate type is 'point'.
-    // Coordinate array.
-    spots: [
+    isTrue: true,           // Validation result
+    type: 'spot',          // Coordinate type: 'spot', 'line', or 'region'
+    spots: [               // Array of coordinate objects
         {
-            lng: '116.3978146455078',   // longitude
-            lat: '39.9076393154042'     // latitude
+            longitude: 116.3978146455078,  // Longitude (number)
+            latitude: 39.9076393154042,    // Latitude (number)
+            lng: 116.3978146455078,        // Longitude (backward compatibility)
+            lat: 39.9076393154042          // Latitude (backward compatibility)
         }
     ]
 }
 
-// Coordinate line
+// Line (2 points)
 {
     isTrue: true,
     type: 'line',
-    spots: [
-        { 
-            lng: '116.3978146455078', 
-            lat: '39.9076393154042' 
-        },
-        { 
-            lng: '116.39652718518064', 
-            lat: '39.93344333054544' 
-        }
-    ]
+    spots: [/* 2 coordinate objects */]
 }
 
-// Coordinate region
+// Region (3+ points)
 {
     isTrue: true,
     type: 'region',
-    spots: [
-        { 
-            lng: '116.3978146455078', 
-            lat: '39.9076393154042' 
-        },
-        { 
-            lng: '116.39652718518064', 
-            lat: '39.93344333054544' 
-        },
-        { 
-            lng: '116.41712655041502', 
-            lat: '39.93370658670286' 
-        }
-    ],
-    regionSpot: 3   // Number of area points.
+    spots: [/* 3+ coordinate objects */],
+    regionSpot: 3          // Number of points in the region
 }
 
+// Validation error
+{
+    isTrue: false,
+    message: "Error in coordinate point 1: Invalid longitude format: 200, should be between -180 and 180",
+    errorIndex: 0,
+    errorCoordinate: "200,39.9076393154042"
+}
 ```
+
+### 🚀 Extended Features
+
+The extended API provides additional functionality:
+
+- **Format Conversion**: Convert between decimal degrees and DMS (degrees-minutes-seconds)
+- **Distance Calculation**: Calculate distance between two points using Haversine formula
+- **Area Calculation**: Calculate polygon area using Shoelace formula
+- **Batch Validation**: Validate multiple coordinate strings at once
+- **Point-in-Polygon**: Check if a point lies within a polygon region
+
+### 🧪 Testing
+
+```shell
+npm test           # Run basic tests
+npm run test:extended  # Run extended functionality tests
+npm run test:all   # Run all tests
+```
+
+### 📝 Changelog
+
+#### v0.2.0
+- 🎯 Refactored code architecture for better maintainability
+- 🚀 Added extended features: distance calculation, area calculation, format conversion
+- ✅ Added comprehensive test coverage
+- 🐛 Fixed longitude/latitude field duplication bug
+- 📚 Added bilingual documentation support
+- 🔄 Maintained 100% backward compatibility

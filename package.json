@@ -1,22 +1,42 @@
 {
   "name": "check-coord",
-  "version": "0.1.2",
-  "description": "Check that your coordinates are correct.",
+  "version": "0.2.0",
+  "description": "A powerful coordinate format validation, conversion and analysis tool. Supports validation and geometric calculations for point, line, and region coordinates.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/basic.test.js",
+    "test:extended": "node test/extended.test.js",
+    "test:compatibility": "node test/compatibility.test.js",
+    "test:all": "npm run test && npm run test:extended && npm run test:compatibility"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mk965/check-coord.git"
   },
   "keywords": [
-    "coordinate"
+    "coordinate",
+    "coordinates",
+    "validation",
+    "geolocation",
+    "latitude",
+    "longitude",
+    "geometry",
+    "gis",
+    "mapping",
+    "distance",
+    "area"
   ],
   "author": "mencre",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mk965/check-coord/issues"
   },
-  "homepage": "https://github.com/mk965/check-coord#readme"
+  "homepage": "https://github.com/mk965/check-coord#readme",
+  "files": [
+    "index.js",
+    "src/"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  }
 }
